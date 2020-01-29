@@ -10,7 +10,8 @@ const getUser = () => {
     .then(user => {
       console.log(user);
       return user;
-    });
+    })
+    .catch(error => console.log(error));
 }
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <p>
-            Hi {getUser().getUsername()}
+            Hi {getUser().username}
           </p>
         </header>
       </div>
