@@ -3,15 +3,15 @@ import './App.css';
 import { withAuthenticator } from 'aws-amplify-react'
 import Amplify, { Auth } from 'aws-amplify';
 import aws_exports from './aws-exports';
+import { CognitoUser } from '@aws-amplify/auth';
 Amplify.configure(aws_exports);
 
-const getUser = () => {
+const getUser = (): CognitoUser => {
   Auth.currentAuthenticatedUser()
     .then(user => {
       console.log(user);
       return user;
-    })
-    .catch(err => console.log(err));
+    });
 }
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <p>
-            Hi {getUser()}
+            Hi {getUser().getUsername()}
           </p>
         </header>
       </div>
