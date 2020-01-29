@@ -8,7 +8,7 @@ Amplify.configure(aws_exports);
 const getUser = () => {
   Auth.currentAuthenticatedUser()
     .then(user => {
-      console.log(error);
+      console.log(user);
       return user;
     })
     .catch(err => console.log(err));
